@@ -8,4 +8,6 @@ import retrofit2.Callback;
 
 public class RetrofitResponse  {
 
+
+
 }

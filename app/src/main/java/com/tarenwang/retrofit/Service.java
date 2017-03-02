@@ -1,12 +1,12 @@
 package com.tarenwang.retrofit;
 
 
-import java.util.List;
+import com.tarenwang.retrofit.Drug.Drug;
+import com.tarenwang.retrofit.Tngou.Tngou;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
-
+import retrofit2.http.Query;
 
 /**
  * Created by zhangyan on 2017/2/28.
@@ -16,7 +16,13 @@ import retrofit2.http.Path;
 
 public interface Service {
 
-    @GET("users/{user}/repos")
-    Call<List<>> listRepos(@Path("user") String user);
+    @GET("/")
+    Call<String> getBaidu();
+
+    @GET("/api/cook/list")
+    Call<Tngou> getList(@Query("id") int id, @Query("page") int page, @Query("rows") int rows);
+
+    @GET("/api/drug/classify")
+    Call<Drug> getInfo(@Query("id") int id);
 
 }

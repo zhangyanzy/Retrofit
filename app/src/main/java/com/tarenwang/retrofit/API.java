@@ -7,14 +7,4 @@ package com.tarenwang.retrofit;
 public class API {
 
 
-    public final static String GITHUB_URL = "https://api.github.com/users/{user}/repos";
-
-    /**
-     * {
-     *   "message": "Not Found",
-     *  "documentation_url": "https://developer.github.com/v3"
-     }
-     */
-
-
 }
