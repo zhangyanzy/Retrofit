@@ -1,29 +1,21 @@
-package com.tarenwang.retrofit;
+package com.tarenwang.retrofit.Json;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tarenwang.retrofit.Drug.Drug;
 import com.tarenwang.retrofit.Drug.Drugclass;
+import com.tarenwang.retrofit.R;
 import com.tarenwang.retrofit.Tngou.Cook;
 import com.tarenwang.retrofit.Tngou.Tngou;
 
-import java.io.IOException;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -40,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mListview = (ListView) findViewById(R.id.main_list);
-        adapter = new Adapter(this, new ArrayList<Drugclass>());
+        adapter = new Adapter(this, new ArrayList<Cook>());
         mListview.setAdapter(adapter);
-        getInfo();
+        getCook();
     }
 
     private void getRetrofit() {
@@ -78,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Tngou> call, Response<Tngou> response) {
                 List<Cook> list = response.body().getList();
-                //adapter.addAll(list);
+                adapter.addAll(list);
             }
 
             @Override
@@ -99,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Drug> call, Response<Drug> response) {
                 List<Drugclass> list = response.body().getList();
-                adapter.addAll(list);
+                //adapter.addAll();
             }
 
             @Override

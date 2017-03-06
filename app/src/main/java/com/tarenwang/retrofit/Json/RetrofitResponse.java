@@ -1,4 +1,4 @@
-package com.tarenwang.retrofit;
+package com.tarenwang.retrofit.Json;
 
 import retrofit2.Callback;
 

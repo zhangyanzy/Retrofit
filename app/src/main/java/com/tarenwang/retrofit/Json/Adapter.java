@@ -1,4 +1,4 @@
-package com.tarenwang.retrofit;
+package com.tarenwang.retrofit.Json;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 import com.tarenwang.retrofit.Drug.Drugclass;
+import com.tarenwang.retrofit.R;
 import com.tarenwang.retrofit.Tngou.Cook;
 
 import java.util.Collection;
@@ -22,9 +23,9 @@ import java.util.List;
 public class Adapter extends BaseAdapter {
 
     private Context context;
-    private List<Drugclass> list;
+    private List<Cook> list;
 
-    public Adapter(Context context, List<Drugclass> list) {
+    public Adapter(Context context, List<Cook> list) {
         this.context = context;
         this.list = list;
     }
@@ -51,14 +52,15 @@ public class Adapter extends BaseAdapter {
             view.setTag(new ViewHolder(view));
         }
         ViewHolder holder = (ViewHolder) view.getTag();
-        Drugclass drugclass = list.get(i);
-        holder.mTitle.setText(drugclass.getName());
-        holder.mInfo.setText(drugclass.getDescription());
-       //Picasso.with(context).load("http://tnfs.tngou.net/img"+ drugclass.getImg()).into(holder.mImage);
+//        Drugclass drugclass = list.get(i);
+        Cook cook = list.get(i);
+        holder.mTitle.setText(cook.getName());
+        holder.mInfo.setText(cook.getDescription());
+       Picasso.with(context).load("http://tnfs.tngou.net/img"+ cook.getImg()).into(holder.mImage);
         return view;
     }
 
-    public void addAll(Collection<? extends Drugclass> collection){
+    public void addAll(Collection<? extends Cook> collection){
         list.addAll(collection);
         notifyDataSetChanged();
     }
